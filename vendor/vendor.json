@@ -1,0 +1,13 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "bUqy9i5qUKJ05XeI6ZaccYeLOSA=",
+			"path": "github.com/streadway/amqp",
+			"revision": "8e4aba63da9fc5571e01c6a45dc809a58cbc5a68",
+			"revisionTime": "2018-03-15T18:46:02Z"
+		}
+	],
+	"rootPath": "my_amqp"
+}
