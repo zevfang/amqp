@@ -37,19 +37,15 @@ func main() {
 
 	body := bodyFrom(os.Args)
 
-	err = ch.Publish("", queue.Name, false, false, amqp.Publishing{
-		ContentType: "text/plain",
-		Body:        []byte(body),
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
-	log.Printf(" [x] Sent %s", body)
-
-	err = ch.Publish("", queue.Name, false, false, amqp.Publishing{
-		ContentType: "text/plain",
-		Body:        []byte(body),
-	})
+	err = ch.Publish(
+		"",
+		queue.Name,
+		false,
+		false,
+		amqp.Publishing{
+			ContentType: "text/plain",
+			Body:        []byte(body),
+		})
 	if err != nil {
 		log.Fatal(err)
 	}
