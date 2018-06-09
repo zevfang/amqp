@@ -22,13 +22,12 @@ func main() {
 
 	q, err := ch.QueueDeclare(
 		"task_work_queue",
-		true,
+		true, //持久化
 		false,
 		false,
 		false,
 		nil,
 	)
-
 
 	body := bodyFrom(os.Args)
 	ch.Publish(
@@ -37,7 +36,7 @@ func main() {
 		false,
 		false,
 		amqp.Publishing{
-			DeliveryMode: amqp.Persistent,
+			DeliveryMode: amqp.Persistent, //消息标记为持久
 			ContentType:  "text/plain",
 			Body:         []byte(body),
 		},

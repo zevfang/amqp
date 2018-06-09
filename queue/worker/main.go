@@ -22,7 +22,7 @@ func main() {
 
 	q, err := ch.QueueDeclare(
 		"task_work_queue",
-		true,
+		true, //持久化
 		false,
 		false,
 		false,
@@ -30,7 +30,7 @@ func main() {
 	)
 
 	err = ch.Qos(
-		1,
+		1, //旧消息未ACK确认，将不接受新的消息（负载功能）
 		0,
 		false,
 	)
@@ -41,7 +41,7 @@ func main() {
 	msgs, err := ch.Consume(
 		q.Name,
 		"",
-		false,
+		false, //手动ack消息
 		false,
 		false,
 		false,
@@ -63,7 +63,7 @@ func main() {
 			time.Sleep(t * time.Second)
 			log.Printf("Done")
 
-			d.Ack(false)
+			d.Ack(false) //手动ack
 		}
 	}()
 
