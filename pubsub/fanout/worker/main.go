@@ -31,11 +31,11 @@ func main() {
 		log.Fatalln("Failed to declare an exchange")
 	}
 
-	q, err := ch.QueueDeclare(
+	q, err := ch.QueueDeclare( //返回随机队列名称
 		"",
 		true,
 		false,
-		true, //独占
+		true, //独占 （连接关闭时，队列将被删除，因为它被声明为独占）
 		false,
 		nil,
 	)

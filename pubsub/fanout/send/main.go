@@ -41,7 +41,7 @@ func main() {
 		false,
 		amqp.Publishing{
 			ContentType: "text/plain",
-			Body:        []byte(body),
+			Body:        []byte(body), //消息发送给交换机
 		})
 
 	if err != nil {
